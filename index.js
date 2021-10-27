@@ -1,55 +1,70 @@
-//Retourne true si un nombre est paire
+/**
+ * Verifie si un nombre est paire
+ * @param {Number} number 
+ * @returns {Boolean}
+ * @example 
+ *  expect(isEven(8)).toBeTruthy()
+ *  expect(isEven(11)).toBeFalsy()
+ */
 function isEven(number) {
-    return number % 2 === 0
+    
 }
 
-//Calcul la taille moyenne des mots d'une phrase arrondi a l'inférieur
+/**
+ * Calcul la taille moyenne des mots d'une phrase arrondi a l'inférieur
+ * @param {String} str 
+ * @returns {Number}
+ * @example
+ *  expect(averageWordLength('Lorem ipsum dolor sit amet consectetur adipiscing elit Quisque hendrerit est eget pellentesque volutpat Fusce a quam et augue semper euismod et a elit')).toBe(5)
+ */
 function averageWordLength(str) {
-    const word = str.split(' ')
-
-    return Math.floor(word.map(x => x.length).reduce((previous, x) => previous + x) / word.length)
+    
 }
 
-//Retourne true si une liste d'entiers est monotone (si elle est triée dans l'ordre croissant ou décroissant)
+/**
+ * Retourne true si une liste d'entiers est monotone (si elle est triée dans l'ordre croissant ou décroissant)
+ * @param {Array<Number>} arr 
+ * @returns {Boolean}
+ * @example
+ *  expect(isMonotonic([1,2,3,4,6,8])).toBeTruthy()
+ *  expect(isMonotonic([10,5,3,2])).toBeTruthy()
+ *  expect(isMonotonic([1,2,3,4,6,8,5,3])).toBeFalsy()
+ */
 function isMonotonic(arr) {
-    return (
-        arr.every((x, index) => index === 0 || x >= arr[index - 1]) ||
-        arr.every((x, index) => index === 0 || x <= arr[index - 1])
-    )
+    
 }
 
-//Deplace tout les zeros d'une liste de nombre à la fin en gardant l'ordre des autre nombres
+/**
+ * Deplace tout les zeros d'une liste de nombre à la fin en gardant l'ordre des autre nombres
+ * @param {Array<Number>} arr 
+ * @returns {Array<Number>}
+ * @example
+ *  expect(moveZero([1,0,13,5,0,7,0,6])).toStrictEqual([1,13,5,7,6,0,0,0])
+ */
 function moveZero(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === 0) {
-            arr.splice(i, 1)
-            arr.push(0)
-        }
-    }
-    return arr
+    
 }
 
-//Trie une liste d’entiers en mettant les nombres pairs triés de façon croissante en début et à la fin les impairs triés de façon décroissante
+/**
+ * Trie une liste d’entiers en mettant les nombres pairs triés de façon croissante en début et à la fin les impairs triés de façon décroissante
+ * @param {Array<Number>} arr 
+ * @returns {Array<Number>}
+ * @example
+ *  expect(sortEvenOdd([93, 24, 38, 1, 96, 87, 100])).toStrictEqual([24, 38, 96, 100, 93, 87, 1])
+ */
 function sortEvenOdd(arr) {
-    const odd = []
-    const even = []
-    const compare = (a, b) => a - b
-
-    for (const x of arr) {
-        (isEven(x) ? even : odd).push(x)
-    }
-
-    return [...even.sort(compare), ...odd.sort(compare).reverse()]
+    
 }
 
-//Transforme une chaine en minuscule en majuscule sans utiliser les méthodes native
+/**
+ * Transforme une chaine en minuscule en majuscule sans utiliser les méthodes native
+ * @param {String} str 
+ * @returns {String}
+ * @example
+ *  expect(toUpperCase('hello')).toBe('HELLO')
+ */
 function toUpperCase(str) {
-    const convert = "a".charCodeAt(0) - "A".charCodeAt(0)
-    let res = ''
-    for (let i = 0; i < str.length; i++) {
-        res += String.fromCharCode(str.charCodeAt(i) - convert)
-    }
-    return res
+    
 }
 
 module.exports = {
